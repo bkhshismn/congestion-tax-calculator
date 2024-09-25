@@ -1,0 +1,31 @@
+﻿@model IEnumerable<congestion_tax_calculator.Models.Vehicle>
+
+<h2>Vehicles</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Vehicle Type</th>
+            <th>License Plate</th>
+            <th>Is Exempt</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.VehicleType</td>
+                <td>@item.LicensePlate</td>
+                <td>@(item.IsExempt ? "Yes" : "No")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

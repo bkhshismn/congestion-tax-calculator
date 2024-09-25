@@ -1,0 +1,33 @@
+﻿@model IEnumerable<congestion_tax_calculator.Models.TollRule>
+
+<h2>Toll Rules</h2>
+<a asp-action="Create">Create New Toll Rule</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>City</th>
+            <th>Max Daily Tax</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Amount</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tollRule in Model)
+        {
+            <tr>
+                <td>@tollRule.City.Name</td>
+                <td>@tollRule.MaxDailyTax</td>
+                <td>@tollRule.StartTime</td>
+                <td>@tollRule.EndTime</td>
+                <td>@tollRule.Amount</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@tollRule.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@tollRule.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@tollRule.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

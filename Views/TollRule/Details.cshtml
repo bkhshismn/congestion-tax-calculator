@@ -1,0 +1,23 @@
+﻿@model congestion_tax_calculator.Models.TollRule
+
+<h2>Details of Toll Rule</h2>
+
+<div>
+    <h4>Toll Rule</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">City</dt>
+        <dd class="col-sm-10">@Model.City.Name</dd>
+        <dt class="col-sm-2">Max Daily Tax</dt>
+        <dd class="col-sm-10">@Model.MaxDailyTax</dd>
+        <dt class="col-sm-2">Start Time</dt>
+        <dd class="col-sm-10">@Model.StartTime</dd>
+        <dt class="col-sm-2">End Time</dt>
+        <dd class="col-sm-10">@Model.EndTime</dd>
+        <dt class="col-sm-2">Amount</dt>
+        <dd class="col-sm-10">@Model.Amount</dd>
+    </dl>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+<a asp-action="Index">Back to List</a>

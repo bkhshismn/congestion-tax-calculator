@@ -1,0 +1,41 @@
+﻿@model congestion_tax_calculator.Models.TaxViewModel
+
+@{
+    ViewData["Title"] = "Congestion Tax Calculator";
+}
+
+<h1>Congestion Tax Calculator</h1>
+
+<form method="post" asp-action="CalculateTax">
+    <div>
+        <label for="vehicleId">Select Vehicle:</label>
+        <select id="vehicleId" name="vehicleId">
+            @foreach (var vehicle in ViewBag.Vehicles)
+            {
+                <option value="@vehicle.Id">@vehicle.VehicleType</option>
+            }
+        </select>
+    </div>
+    <div>
+       @* <label for="dateStrings">Enter Date and Time:</label>
+        <input type="datetime-local" id="dateStrings" name="dateStrings" required>*@
+        <label for="dateStrings">Enter Date and Time (2013 only):</label>
+        <input type="datetime-local" id="dateStrings" name="dateStrings" min="2013-01-01T00:00" max="2013-12-31T23:59" required>
+
+    </div>
+    <div>
+        <label for="cityId">Select City:</label>
+        <select id="cityId" name="cityId">
+            @foreach (var city in ViewBag.Cities)
+            {
+                <option value="@city.Id">@city.Name</option>
+            }
+        </select>
+    </div>
+    <button type="submit">Calculate Tax</button>
+</form>
+
+@if (ViewBag.TotalTax != null)
+{
+    <h2>Total Tax: @ViewBag.TotalTax SEK</h2>
+}

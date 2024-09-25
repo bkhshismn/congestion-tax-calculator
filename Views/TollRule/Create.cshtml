@@ -1,0 +1,39 @@
+﻿@model congestion_tax_calculator.Models.TollRule
+
+<h2>Create Toll Rule</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="CityId">City</label>
+        @if (ViewBag.Cities != null)
+        {
+            <select asp-for="CityId" class="form-control" asp-items="@(new SelectList(ViewBag.Cities, "Id", "Name"))"></select>
+        }
+        else
+        {
+            <p>No cities available</p>
+        }
+
+    </div>
+    <div class="form-group">
+        <label asp-for="MaxDailyTax"></label>
+        <input asp-for="MaxDailyTax" class="form-control" />
+        <span asp-validation-for="MaxDailyTax" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="StartTime"></label>
+        <input asp-for="StartTime" type="time" class="form-control" />
+        <span asp-validation-for="StartTime" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="EndTime"></label>
+        <input asp-for="EndTime" type="time" class="form-control" />
+        <span asp-validation-for="EndTime" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Amount"></label>
+        <input asp-for="Amount" class="form-control" />
+        <span asp-validation-for="Amount" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>

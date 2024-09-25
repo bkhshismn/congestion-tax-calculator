@@ -1,0 +1,15 @@
+﻿@model congestion_tax_calculator.Models.PublicHoliday
+
+<h2>Delete Public Holiday</h2>
+
+<div>
+    <h4>Are you sure you want to delete this holiday?</h4>
+    <div>
+        <h5>@Model.Date</h5>
+    </div>
+    <form asp-action="DeleteConfirmed">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

@@ -1,0 +1,18 @@
+﻿@model congestion_tax_calculator.Models.PassDate
+
+<h2>Edit Pass Date</h2>
+
+<form asp-action="Edit">
+    <div class="form-group">
+        <label asp-for="Date"></label>
+        <input asp-for="Date" class="form-control" type="datetime-local" />
+        <span asp-validation-for="Date" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="VehicleId"></label>
+        <select asp-for="VehicleId" class="form-control" asp-items="@(new SelectList(ViewBag.Vehicles, "Id", "VehicleType", Model.VehicleId))"></select>
+        <span asp-validation-for="VehicleId" class="text-danger"></span>
+    </div>
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
